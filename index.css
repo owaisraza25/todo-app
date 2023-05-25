@@ -73,7 +73,7 @@ input[type=text]{
 .todo_task{
     
     border-radius: 5px;
-    height: 50px;
+    height: 60px;
     width: 480px;
     background-color: white;
     box-shadow: 0 15px 30px rgb(0, 0, 0, 0.4);
@@ -85,27 +85,28 @@ input[type=text]{
 }
 .textstyle{
     color: black;
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: capitalize;
     /* padding-top: ; */
 }
 
-.dlt-btn{
+.dlt-btn {
     background-color: rgb(23, 99, 222);
     color: white;
-    height: 30px;
-    width: 60px;
+    height: 40px;
+    width: 70px;
     border: none;
     border-radius: 5px;
     margin: 10px;
     padding: 0px;
     cursor: pointer;
+    font-size: 17px;
     /* gap: 220px; */
-    align-self: flex-end;
-    
-    
-    
-   
+    /* align-self: flex-end; */
 }
+
+
 
 .dlt-btn:hover{
     background-color: rgb(6, 33, 189);
