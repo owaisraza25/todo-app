@@ -8,33 +8,45 @@ var container = document.getElementById("container-")
 
 Btn.addEventListener("click", todoList)
 
-function todoList(){
+function todoList() {
+
     var div = document.createElement("div")
-    var p = document.createElement ("span")
+    var ListTxt = document.createElement("input")
     var btn = document.createElement("button")
+    var btn2 = document.createElement("button")
+    // var box = document.createElement("div")
 
-    
 
-    if(textInput.value === ""){
+    if (textInput.value === "") {
         alert("please fill to do....")
-    }else{
-     
-        btn.innerText = "delete"
-        btn.className = "dlt-btn" 
-        p.className ="textstyle"
-        div.className ="todo_task"
-        p.innerText = textInput.value
-        div.appendChild(p)
+    } else {
+        ListTxt.disabled = true;
+        btn.innerHTML = `<i class="fa solid fa-trash"></i>`
+        btn2.innerHTML = `<i class="fa-regular fa-pen-to-square"></i>`
+        btn.className = "dlt-btn"
+        btn2.className = "Edit-btn"
+
+        ListTxt.className = "textstyle"
+        div.className = "todo_task"
+        ListTxt.value = textInput.value
+        div.appendChild(ListTxt)
+        div.appendChild(btn2)
         div.appendChild(btn)
-        container.appendChild (div)
+        container.appendChild(div)
         textInput.value = ""
         btn.addEventListener("click", deleteListItem)
-
+        btn2.addEventListener("click", ()  => { ListTxt.contentEditable = true; } )
     }
 }
-
 
 function deleteListItem() {
     this.parentNode.remove()
 }
- 
+
+
+function EditList(){
+    ListTxt.contentEditable = true;
+
+}
+
+
