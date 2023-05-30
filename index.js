@@ -19,7 +19,8 @@ function todoList() {
 
     if (textInput.value === "") {
         alert("please fill to do....")
-    } else {
+    } else  {
+        
         ListTxt.disabled = true;
         btn.innerHTML = `<i class="fa solid fa-trash"></i>`
         btn2.innerHTML = `<i class="fa-regular fa-pen-to-square"></i>`
@@ -35,8 +36,8 @@ function todoList() {
         container.appendChild(div)
         textInput.value = ""
         btn.addEventListener("click", deleteListItem)
-        btn2.addEventListener("click", ()  => { ListTxt.contentEditable = true; } )
-    }
+        btn2.addEventListener("click",  editListItem)
+    } 
 }
 
 function deleteListItem() {
@@ -44,9 +45,19 @@ function deleteListItem() {
 }
 
 
-function EditList(){
-    ListTxt.contentEditable = true;
-
-}
-
+function editListItem() {
+    var listItem = this.parentNode;
+    var listTxt = listItem.querySelector(".textstyle");
+    
+    listTxt.disabled = false; // Enable the input field for editing
+    listTxt.focus(); // Set focus to the input field for easy editing
+    
+    // Add an event listener to the input field to detect the Enter key press and save the edited value
+    listTxt.addEventListener("keyup", function(event) {
+      if (event.key === "Enter") {
+        listTxt.disabled = true; // Disable the input field after editing
+        // listTxt.removeEventListener("keyup", editListItem); // Remove the keyup event listener
+      }
+    });
+  }
 
